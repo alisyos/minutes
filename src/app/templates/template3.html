@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} - 회의록</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+    
+    :root {
+      --primary-color: #1e40af;
+      --secondary-color: #dbeafe;
+      --text-color: #1f2937;
+      --light-text: #6b7280;
+      --border-color: #e5e7eb;
+      --background: #ffffff;
+      --highlight: #f3f4f6;
+    }
+    
+    body {
+      font-family: 'Nanum Gothic', sans-serif;
+      line-height: 1.7;
+      color: var(--text-color);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      background-color: var(--background);
+    }
+    
+    .document {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    
+    .document-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: 26px;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+    
+    .document-meta {
+      background-color: var(--secondary-color);
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+    
+    .meta-group {
+      margin: 5px 0;
+    }
+    
+    .meta-label {
+      font-weight: 700;
+      margin-right: 8px;
+    }
+    
+    .document-body {
+      padding: 25px;
+    }
+    
+    .section {
+      margin-bottom: 30px;
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 8px;
+    }
+    
+    .section-number {
+      background-color: var(--primary-color);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    
+    .section-content {
+      padding: 0 10px;
+      white-space: pre-line;
+    }
+    
+    .document-footer {
+      background-color: var(--highlight);
+      padding: 15px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--light-text);
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="document-header">
+      <h1>{{title}}</h1>
+    </div>
+    
+    <div class="document-meta">
+      <div class="meta-group">
+        <span class="meta-label">일시:</span>
+        <span>{{date}}</span>
+      </div>
+      <div class="meta-group">
+        <span class="meta-label">참석자:</span>
+        <span>{{participants}}</span>
+      </div>
+    </div>
+    
+    <div class="document-body">
+      <div class="section">
+        <div class="section-header">
+          <div class="section-number">1</div>
+          <div class="section-title">회의 안건</div>
+        </div>
+        <div class="section-content">
+          {{agenda}}
+        </div>
+      </div>
+      
+      <div class="section">
+        <div class="section-header">
+          <div class="section-number">2</div>
+          <div class="section-title">회의 내용</div>
+        </div>
+        <div class="section-content">
+          {{content}}
+        </div>
+      </div>
+      
+      <div class="section">
+        <div class="section-header">
+          <div class="section-number">3</div>
+          <div class="section-title">결정 사항</div>
+        </div>
+        <div class="section-content">
+          {{decisions}}
+        </div>
+      </div>
+      
+      <div class="section">
+        <div class="section-header">
+          <div class="section-number">4</div>
+          <div class="section-title">액션 아이템</div>
+        </div>
+        <div class="section-content">
+          {{actionItems}}
+        </div>
+      </div>
+      
+      <div class="section">
+        <div class="section-header">
+          <div class="section-number">5</div>
+          <div class="section-title">추가 사항</div>
+        </div>
+        <div class="section-content">
+          {{additionalNotes}}
+        </div>
+      </div>
+    </div>
+    
+    <div class="document-footer">
+      자동 생성된 회의록 | {{generatedDate}}
+    </div>
+  </div>
+</body>
+</html> 

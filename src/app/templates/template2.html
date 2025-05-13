@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} - 회의록</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.6;
+      color: #444;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .header:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: #3498db;
+      margin: 15px auto;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+    .meta-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 25px;
+      font-size: 14px;
+      background-color: #f5f7fa;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .meta-item {
+      display: flex;
+    }
+    .meta-label {
+      font-weight: bold;
+      min-width: 80px;
+      color: #7f8c8d;
+    }
+    .section {
+      margin-bottom: 25px;
+      border-left: 4px solid #3498db;
+      padding-left: 15px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #2980b9;
+    }
+    .section-content {
+      padding: 0 5px;
+      white-space: pre-line;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 15px;
+      border-top: 1px dashed #ddd;
+      font-size: 12px;
+      text-align: center;
+      color: #95a5a6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>{{title}}</h1>
+    </div>
+
+    <div class="meta-info">
+      <div class="meta-item">
+        <div class="meta-label">일시:</div>
+        <div>{{date}}</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">참석자:</div>
+        <div>{{participants}}</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📋 회의 안건</div>
+      <div class="section-content">
+        {{agenda}}
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">💬 회의 내용</div>
+      <div class="section-content">
+        {{content}}
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">✅ 결정 사항</div>
+      <div class="section-content">
+        {{decisions}}
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📌 액션 아이템</div>
+      <div class="section-content">
+        {{actionItems}}
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">📝 추가 사항</div>
+      <div class="section-content">
+        {{additionalNotes}}
+      </div>
+    </div>
+
+    <div class="footer">
+      이 회의록은 AI에 의해 자동 생성되었습니다. | 작성일: {{generatedDate}}
+    </div>
+  </div>
+</body>
+</html> 
