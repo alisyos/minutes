@@ -90,14 +90,15 @@ export async function POST(req: NextRequest) {
     
     // 파일명 생성
     const date = new Date().toISOString().slice(0, 10);
-    const sanitizedTitle = docTitle.replace(/[\\\/\:\*\?\"\<\>\|]/g, '_').substring(0, 50);
-    const filename = `minutes_${sanitizedTitle}_${date}.docx`;
+    // 한글 처리 문제를 피하기 위해 영문 파일명만 사용
+    const filename = `minutes_${date}.docx`;
+    const encodedFilename = encodeURIComponent(filename);
     
     // 응답 반환 - 직접 파일 다운로드
     return new Response(buffer, {
       headers: {
         'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-        'Content-Disposition': `attachment; filename="${filename}"`,
+        'Content-Disposition': `attachment; filename="${encodedFilename}"; filename*=UTF-8''${encodedFilename}`,
       },
     });
   } catch (error) {
