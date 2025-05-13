@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: minutes-auto-generator
+    runtime: node
+    buildCommand: ./build.sh
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: NEXT_PUBLIC_BASE_URL
+        fromService:
+          type: web
+          name: minutes-auto-generator
+          property: host
+    plan: free 
